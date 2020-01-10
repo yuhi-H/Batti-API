@@ -1,14 +1,14 @@
 class ApplicationController < ActionController::API
     def authorize!
         return if current_user
-        render json: { messages:　['You do not have right current user permission to view this resources.'] }, status: :unauthorized
+        render json: { messages: ['You do not have right current user permission to view this resources.'] }, status: :unauthorized
     end
 
     def current_user
         User.where(token: bearer_token).first
     end
 
-    private
+    private# ここのクラス内でしか使えない
     def bearer_token
         @bearer_token ||= begin
         pattern = /^Bearer /

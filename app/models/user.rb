@@ -3,4 +3,6 @@ class User < ApplicationRecord
     validates :bio, presence: true
     has_secure_password
     has_secure_token
+
+    has_many :posts # 渡す側
 end
