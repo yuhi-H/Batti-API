@@ -25,6 +25,11 @@ class PostsController < ApplicationController
     render json: serializer.as_json
     end
 
+    def destroy
+        @post.destroy!
+        render json: {'message': '正常にPost削除されました'}
+    end
+
     def post_params
         params.require(:post_params).permit(
             :content

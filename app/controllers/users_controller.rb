@@ -22,11 +22,6 @@ class UsersController < ApplicationController
         render json: {'message': '正常にUser削除されました'}
     end
 
-    def show
-        serializer = UserSerializer.new(@user, current_user: current_user)
-        render json: serializer.as_json
-    end
-
     def timeline
         logger.debug('aaaaaaaaaaa')
         logger.debug(@user.inspect)
